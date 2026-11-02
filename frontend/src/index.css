@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Superfícies */
+  --color-bg: #0b1120;
+  --color-surface: #111a2e;
+  --color-surface-2: #172238;
+  --color-line: #26334d;
+  --color-fg: #f1f5f9;
+  --color-fg-muted: #9fb0c8;
+  --color-fg-subtle: #6b7d99;
+
+  /* Um tom por padrão de projeto — usado em toda a interface */
+  --color-strategy: #f59e0b;
+  --color-factory: #38bdf8;
+  --color-chain: #34d399;
+  --color-adapter: #a78bfa;
+  --color-model: #94a3b8;
+
+  --color-ok: #34d399;
+  --color-err: #f87171;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fundo com grade sutil, só decorativo */
+.bg-grid {
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgb(245 158 11 / 0.08), transparent 70%),
+    linear-gradient(to right, rgb(148 163 184 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(148 163 184 / 0.05) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    48px 48px,
+    48px 48px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-strategy);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Realce de sintaxe Java */
+.tok-kw {
+  color: #c084fc;
+}
+.tok-str {
+  color: #86efac;
+}
+.tok-com {
+  color: #64748b;
+  font-style: italic;
+}
+.tok-type {
+  color: #7dd3fc;
+}
+.tok-fn {
+  color: #fcd34d;
+}
+.tok-num {
+  color: #fdba74;
+}
+.tok-ann {
+  color: #f9a8d4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,5 +1,6 @@
 package com.thiago.pagamentos.factory;
 
+import com.thiago.pagamentos.saida.Saida;
 import com.thiago.pagamentos.strategy.MetodoPagamento;
 import com.thiago.pagamentos.strategy.PagamentoBoleto;
 import com.thiago.pagamentos.strategy.PagamentoCartao;
@@ -19,7 +20,7 @@ public class PagamentoFactory {
             );
         }
 
-        return switch (metodo.toUpperCase()) {
+        MetodoPagamento metodoPagamento = switch (metodo.toUpperCase()) {
 
             case "PIX" -> new PagamentoPix();
 
@@ -33,5 +34,13 @@ public class PagamentoFactory {
                     "Método de pagamento inválido: " + metodo
             );
         };
+
+        Saida.printf(
+                "criar(\"%s\") → new %s()%n",
+                metodo,
+                metodoPagamento.getClass().getSimpleName()
+        );
+
+        return metodoPagamento;
     }
 }
