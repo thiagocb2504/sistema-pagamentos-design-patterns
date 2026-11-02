@@ -1,6 +1,7 @@
 package com.thiago.pagamentos.chain;
 
 import com.thiago.pagamentos.model.Pagamento;
+import com.thiago.pagamentos.saida.Saida;
 
 public class ValorValidator extends ValidadorPagamento {
 
@@ -14,6 +15,6 @@ public class ValorValidator extends ValidadorPagamento {
             );
         }
 
-        System.out.println("✓ Valor validado.");
+        Saida.println("✓ Valor validado.");
     }
 }

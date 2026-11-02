@@ -1,5 +1,7 @@
 package com.thiago.pagamentos.adapter;
 
+import com.thiago.pagamentos.saida.Saida;
+
 public class GatewayPayPal {
 
     public void sendPayment(
@@ -7,17 +9,17 @@ public class GatewayPayPal {
             String customerName
     ) {
 
-        System.out.println(
+        Saida.println(
                 "Conectando ao gateway externo do PayPal..."
         );
 
-        System.out.printf(
+        Saida.printf(
                 "PayPal: pagamento de USD %.2f processado para %s.%n",
                 amount,
                 customerName
         );
 
-        System.out.println(
+        Saida.println(
                 "Pagamento aprovado pelo PayPal."
         );
     }

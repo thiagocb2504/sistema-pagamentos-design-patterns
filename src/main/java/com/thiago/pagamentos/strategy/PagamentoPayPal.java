@@ -2,6 +2,7 @@ package com.thiago.pagamentos.strategy;
 
 import com.thiago.pagamentos.adapter.PayPalAdapter;
 import com.thiago.pagamentos.model.Pagamento;
+import com.thiago.pagamentos.saida.Saida;
 
 public class PagamentoPayPal implements MetodoPagamento {
 
@@ -14,7 +15,7 @@ public class PagamentoPayPal implements MetodoPagamento {
     @Override
     public void pagar(Pagamento pagamento) {
 
-        System.out.println("Processando pagamento via PayPal...");
+        Saida.println("Processando pagamento via PayPal...");
 
         payPalAdapter.processarPagamento(
                 pagamento.getValor(),
