@@ -8,6 +8,10 @@ O projeto tem três formas de uso:
 - **API REST** (Spring Boot): executa o mesmo fluxo e devolve o que cada classe fez.
 - **Interface web** (React + TypeScript): uma apresentação em slides sobre os padrões e um simulador que chama a API e anima cada etapa.
 
+**Ver online:** https://thiagocb2504.github.io/sistema-pagamentos-design-patterns/
+
+Na versão online não há backend, então o simulador roda a versão em TypeScript do fluxo. Para executar o Java de verdade, rode o projeto localmente.
+
 ---
 
 ## Os padrões
