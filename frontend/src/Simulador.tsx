@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { CircleCheck, CircleHelp, CircleX, Coffee, FileCode, LoaderCircle, Play, RotateCcw, Terminal } from 'lucide-react'
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react'
 import { METODOS, PADROES } from './components/padroes'
-import { processarNoJava, statusApi } from './domain/api'
+import { API_ACESSIVEL, processarNoJava, statusApi } from './domain/api'
 import { Pagamento, processarPagamento, type LinhaLog, type ResultadoExecucao } from './domain/pagamentos'
 
 const INTERVALO_MS = 280
@@ -93,7 +93,11 @@ export function Simulador() {
       const v = await statusApi()
       setJavaVersao(v)
       if (!v) {
-        setAviso('A API Java não respondeu em localhost:8080. Suba o backend e tente de novo.')
+        setAviso(
+          API_ACESSIVEL
+            ? 'A API Java não respondeu em localhost:8080. Suba o backend e tente de novo.'
+            : 'Na versão online não há backend. Para executar o Java, rode o projeto localmente.',
+        )
         return
       }
     }
@@ -229,7 +233,9 @@ export function Simulador() {
                 {aviso ??
                   (motor === 'java'
                     ? 'Chama o código Java de verdade pela API.'
-                    : 'Usa o porte em TypeScript, sem precisar do backend.')}
+                    : API_ACESSIVEL
+                      ? 'Usa o porte em TypeScript, sem precisar do backend.'
+                      : 'Versão online: roda o porte em TypeScript, no navegador.')}
               </p>
             </fieldset>
 
